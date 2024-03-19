@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Qr-WebPageStyle.css" />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/76CyrkZq/IMG-20240105-112414.png">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.0.0/dist/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Arwan-Ro</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" href="StyleTable.css" />
+    <script>
+        $(document).ready(function() {
+            $("#flip").click(function() {
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="https://www.arwanlb.com/" title="Home" rel="home" class="Arwan-logo">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Home" />
+        </a>
+        <h1 class="header-title">Arwan Pharmaceutical Industries Lebanon</h1>
+
+    </header>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-brands fa-xing"></i></a>
+        <div class="overlay-content">
+            <a href="Qr-WebPage.html">Home</a>
+            <a href="Qr-Wp-WfiArea.html">WFI Area</a>
+            <a href="Manual-Ro.html">About Ro</a>
+            <a href="Manual-Ms.html">About Ms</a>
+            <a href="Manual-Psg.html">About Psg</a>
+            <a href="Sop.html">Sop Preventive</a>
+        </div>
+    </div>
+    <div class="btnmenu">
+        <button class="btnnav"><span onclick="openNav()"><i class="fa-solid fa-bars-staggered"></i> open</span></button>
+    </div>
+    <div class="border">
+        <div id="flip">Click to slide the panel down or up</div>
+        <div id="panel">
+
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">RO Phases Settings</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>Delay low level TK50 reached</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>Delay refill TK50</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>Intial Disharge</td>
+                    <td>120s</td>
+                </tr>
+
+                <tr>
+                    <td>Delay disharge after bad param</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>Flushing time</td>
+                    <td>10min</td>
+                </tr>
+
+                <tr>
+                    <td>Waiting Flushing time</td>
+                    <td>180min</td>
+                </tr>
+
+                <tr>
+                    <td>Chemical washing time</td>
+                    <td>30min</td>
+                </tr>
+
+                <tr>
+                    <td>ASHH50-17 for rinsing</td>
+                    <td>20us</td>
+                </tr>
+
+                <tr>
+                    <td>Rinsing time</td>
+                    <td>30min</td>
+                </tr>
+
+                <tr>
+                    <td>Recycle before flushing</td>
+                    <td>600s</td>
+                </tr>
+            </table>
+
+
+            <br>
+            <br>
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">RO ALARMS Settings</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>ASH64-43 High redox Value</td>
+                    <td>300s/220mv</td>
+                </tr>
+
+                <tr>
+                    <td>ASH50-30 RO Feed water / High PH Value</td>
+                    <td>220s/9.5pH</td>
+                </tr>
+
+                <tr>
+                    <td>ASL50-30 RO Feed water / low pH Value</td>
+                    <td>60s/6pH</td>
+                </tr>
+
+                <tr>
+                    <td>ASH50-5 RO Feed water / High temperature</td>
+                    <td>60s/30°C</td>
+                </tr>
+
+                <tr>
+                    <td>ASH50-6 RO Feed water High / pressure chemical washing</td>
+                    <td>10s/2bar</td>
+                </tr>
+
+                <tr>
+                    <td>ASL50-7 RO Concentrate Low / pressure</td>
+                    <td>180s/9bar</td>
+                </tr>
+
+                <tr>
+                    <td>LSL50-20 TK50 Low level</td>
+                    <td>5s</td>
+                </tr>
+
+                <tr>
+                    <td>ASH50-17 Product High Cond</td>
+                    <td>180s</td>
+                    <tr>
+                        <td>TISH50-77 Product high / temperature</td>
+                        <td>120s/30°C</td>
+                    </tr>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">RO Dosing pump PD 67-10 Regulation</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>AIT50-30</td>
+                    <td>7.6 PH</td>
+                </tr>
+
+                <tr>
+                    <td>Gain</td>
+                    <td>2.9</td>
+                </tr>
+
+                <tr>
+                    <td>Integral</td>
+                    <td>20s</td>
+                </tr>
+
+                <tr>
+                    <td>Output</td>
+                    <td>0%</td>
+                </tr>
+
+                <tr>
+                    <td>Max out</td>
+                    <td>100%</td>
+                </tr>
+
+                <tr>
+                    <td>Min out</td>
+                    <td>0%</td>
+                </tr>
+
+            </table>
+
+            <br>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">TCV50-5B Cooling water regulation valve</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>Gain</td>
+                    <td>2</td>
+                </tr>
+
+                <tr>
+                    <td>Integral</td>
+                    <td>20s</td>
+                </tr>
+
+                <tr>
+                    <td>Output</td>
+                    <td>0%</td>
+                </tr>
+
+                <tr>
+                    <td>SP production</td>
+                    <td>15.5°C</td>
+                </tr>
+
+                <tr>
+                    <td>Max out</td>
+                    <td>100%</td>
+                </tr>
+
+                <tr>
+                    <td>Min out</td>
+                    <td>0%</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Copyright Symbol"> &copy; Arwan Pharmaceutical Industries Lebanon &nbsp; <b>2023-2024</b>
+
+        </div>
+        <div class="copyrightText">
+            <h1>Created By Houssein Baz</h1>
+        </div>
+    </footer>
+</body>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+
+
+
+</html>

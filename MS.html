@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Qr-WebPageStyle.css" />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/76CyrkZq/IMG-20240105-112414.png">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.0.0/dist/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js"></script>
+    <title>Arwan-Boiler</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" href="StyleTable.css" />
+    <script>
+        $(document).ready(function() {
+            $("#flip").click(function() {
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="https://www.arwanlb.com/" title="Home" rel="home" class="Arwan-logo">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Home" />
+        </a>
+        <h1 class="header-title">Arwan Pharmaceutical Industries Lebanon</h1>
+
+    </header>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-brands fa-xing"></i></a>
+        <div class="overlay-content">
+            <a href="Qr-WebPage.html">Home</a>
+            <a href="Qr-Wp-WfiArea.html">WFI Area</a>
+            <a href="Manual-Ro.html">About Ro</a>
+            <a href="Manual-Ms.html">About Ms</a>
+            <a href="Manual-Psg.html">About Psg</a>
+            <a href="Sop.html">Sop Preventive</a>
+        </div>
+    </div>
+    <div class="btnmenu">
+        <button class="btnnav"><span onclick="openNav()"><i class="fa-solid fa-bars-staggered"></i> open</span></button>
+    </div>
+    <div class="border">
+        <div id="flip">Click to slide the panel down or up</div>
+        <div id="panel">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">Boiler settings</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>Delay refill TK09</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>Delay start Heating</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>TISH last column End Heating</td>
+                    <td>90°C</td>
+                </tr>
+
+                <tr>
+                    <td>TISL12-2 ALARM/Discharge</td>
+                    <td>85°C</td>
+                </tr>
+
+                <tr>
+                    <td>Delay waiting WFI Temperature</td>
+                    <td>30s</td>
+                </tr>
+
+                <tr>
+                    <td>Initial Discharge</td>
+                    <td>60s</td>
+                </tr>
+                <tr>
+                    <td>Discharge after bad parameter</td>
+                    <td>30s</td>
+                </tr>
+                <tr>
+                    <td>Stop procedure</td>
+                    <td>120s</td>
+                </tr>
+
+            </table>
+            <br>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">MS Alarms Settings</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>ASH 12-1 WFI high conductivity</td>
+                    <td>180s</td>
+                </tr>
+
+                <tr>
+                    <td>TISL12-2 wait/ Discharge</td>
+                    <td>240s/85°C</td>
+                </tr>
+
+                <tr>
+                    <td>FISL09-9 feed water low flow rate</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>FISL10-2 cooling water low flow rate</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>LSH01-1 1st column high level</td>
+                    <td>30s</td>
+                </tr>
+
+                <tr>
+                    <td>LSL09-4 Low level TK09</td>
+                    <td>10s</td>
+                </tr>
+
+                <tr>
+                    <td>TISL11 Industrial Steam / Low Temperature</td>
+                    <td>5s/143°C</td>
+                </tr>
+
+                <tr>
+                    <td>TISH01 1st Column Production</td>
+                    <td>180°C</td>
+                </tr>
+
+                <tr>
+                    <td>TISH02 2nd Column Production</td>
+                    <td>170°C</td>
+                </tr>
+
+                <tr>
+                    <td>TISH03 3rd Column Production</td>
+                    <td>160°C</td>
+                </tr>
+
+                <tr>
+                    <td>TISH04 4th Column Production</td>
+                    <td>150°C</td>
+                </tr>
+
+                <tr>
+                    <td>TISH05 5th Column Production</td>
+                    <td>130°C</td>
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+    <footer>
+        <div class="copyright">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Copyright Symbol"> &copy; Arwan Pharmaceutical Industries Lebanon &nbsp; <b>2023-2024</b>
+
+        </div>
+        <div class="copyrightText">
+            <h1>Created By Houssein Baz</h1>
+        </div>
+    </footer>
+</body>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+
+
+
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Qr-WebPageStyle.css" />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/76CyrkZq/IMG-20240105-112414.png">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.0.0/dist/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Arwan-Loop-Wfi</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" href="StyleTable.css" />
+    <script>
+        $(document).ready(function() {
+            $("#flip").click(function() {
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="https://www.arwanlb.com/" title="Home" rel="home" class="Arwan-logo">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Home" />
+        </a>
+        <h1 class="header-title">Arwan Pharmaceutical Industries Lebanon</h1>
+
+    </header>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-brands fa-xing"></i></a>
+        <div class="overlay-content">
+            <a href="Qr-WebPage.html">Home</a>
+            <a href="Qr-Wp-WfiArea.html">WFI Area</a>
+            <a href="Manual-Ro.html">About Ro</a>
+            <a href="Manual-Ms.html">About Ms</a>
+            <a href="Manual-Psg.html">About Psg</a>
+            <a href="Sop.html">Sop Preventive</a>
+        </div>
+    </div>
+    <div class="btnmenu">
+        <button class="btnnav"><span onclick="openNav()"><i class="fa-solid fa-bars-staggered"></i> open</span></button>
+    </div>
+    <div class="border">
+        <div id="flip">Click to slide the panel down or up</div>
+        <div id="panel">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Wfi-loop" colspan="3">Loop WFI phases settings</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>LSL15-11 to start pump</td>
+                    <td>20%</td>
+                </tr>
+
+                <tr>
+                    <td>LSM15-11 Tank Filling Restart</td>
+                    <td>85%</td>
+                </tr>
+
+                <tr>
+                    <td>LSH15-11 Tank Filling Stop</td>
+                    <td>99%</td>
+                </tr>
+
+                <tr>
+                    <td>Delay start recycle</td>
+                    <td>90s</td>
+                </tr>
+
+                <tr>
+                    <td>Delay WFI Available for V.P</td>
+                    <td>30s</td>
+                </tr>
+
+
+                <tr>
+                    <td>Delay WFI Available for TK15B</td>
+                    <td>30min</td>
+                </tr>
+
+                <tr>
+                    <td>TSH15-14 to close XV15-1</td>
+                    <td>92°C</td>
+                </tr>
+
+
+                <tr>
+                    <td>TSL15-14 to open XV15-1</td>
+                    <td>99°C</td>
+                </tr>
+
+                <tr>
+                    <td>Delay start Heating for sanitization</td>
+                    <td>240s</td>
+                </tr>
+
+
+                <tr>
+                    <td>TISH15-14/19 sanitization temperature</td>
+                    <td>121°C</td>
+                </tr>
+
+                <tr>
+                    <td>Delay sanitization temp lost</td>
+                    <td>180s</td>
+                </tr>
+
+                <tr>
+                    <td>Sanitization time</td>
+                    <td>30min</td>
+                </tr>
+
+                <tr>
+                    <td>TISL15-14/19 Cooling temperature</td>
+                    <td>90°C</td>
+                </tr>
+
+                <tr>
+                    <td>Intermittent Cooling off</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>Intermittent Cooling on</td>
+                    <td>4s</td>
+                </tr>
+
+                <tr>
+                    <td>Delay Emptying TK15 after sanitization</td>
+                    <td>600s</td>
+                </tr>
+
+                <tr>
+                    <td>AF15 Filter intermittent/ Discharge Time</td>
+                    <td>30s/2min</td>
+                </tr>
+
+                <tr>
+                    <td>AF15 Drain before sterilization</td>
+                    <td>60s</td>
+                </tr>
+
+                <tr>
+                    <td>TISH15-34 AF15 sterilization temp</td>
+                    <td>121°C</td>
+                </tr>
+
+                <tr>
+                    <td>AF15 Sterilization Time</td>
+                    <td>15min</td>
+                </tr>
+
+                <tr>
+                    <td>AF15 Delay Sterilization temp lost</td>
+                    <td>30s</td>
+                </tr>
+
+                <tr>
+                    <td>AF15 Drain after sterilization</td>
+                    <td>90s</td>
+                </tr>
+
+                <tr>
+                    <td>TISL15-34 AF15 Cooling temp</td>
+                    <td>100°C</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">Loop WFI Alarm settings</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>TISL15-14 Tank TK15 low temperature</td>
+                    <td>120s/70°C</td>
+                </tr>
+
+                <tr>
+                    <td>TISL15-15 LOOP return low temperature</td>
+                    <td>180s/60°C</td>
+                </tr>
+
+                <tr>
+                    <td>LSLL15-11 Tank TK15 Minimum level</td>
+                    <td>5s/5%</td>
+                </tr>
+
+
+                <tr>
+                    <td>ASH15-16 Return High cond</td>
+                    <td>180s</td>
+                </tr>
+
+                <tr>
+                    <td>ASH15-70 Loop return T.O.C High value</td>
+                    <td>180s/500ppb</td>
+                </tr>
+
+                <tr>
+                    <td>FISL15-20 Loop return low flow rate</td>
+                    <td>180s/33001/h</td>
+                </tr>
+
+
+                <tr>
+                    <td>PISH15-50 Tank Vent Filter High pressure</td>
+                    <td>30s/1.7bar</td>
+                </tr>
+
+                <br>
+
+                <table>
+                    <br>
+                    <thead>
+                        <hr>
+                        <br>
+                        <tr>
+                            <td class="Ro" colspan="3">Loop Parameters</td>
+                        </tr>
+
+                        <tr>
+                            <td class="Ro" colspan="3">Inverter pump P15-1 Regulation Settings</td>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <th>Parameters</th>
+                        <th>Set point</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>FIT15-20</td>
+                        <td>3550 1/h</td>
+
+                        <tr>
+                            <td>Gain</td>
+                            <td>0.01</td>
+                        </tr>
+
+                        <tr>
+                            <td>Integral</td>
+                            <td>20s</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Output</td>
+                            <td>80%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Max out</td>
+                            <td>100%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Min out</td>
+                            <td>0%</td>
+                        </tr>
+
+                </table>
+
+                <br>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <td class="Ro" colspan="3">Heating regulation valve settings</td>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <th>Parameters</th>
+                        <th>Set point</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>TE15-15</td>
+                        <td>88°C</td>
+
+                        <tr>
+                            <td>Gain</td>
+                            <td>0.5</td>
+                        </tr>
+
+                        <tr>
+                            <td>Integral</td>
+                            <td>20s</td>
+                        </tr>
+
+                        <tr>
+                            <td>Output</td>
+                            <td>0%</td>
+                        </tr>
+
+                        <tr>
+                            <td>SP sanitization</td>
+                            <td>88%</td>
+                        </tr>
+
+                        <tr>
+                            <td>SP sanitization</td>
+                            <td>132 °C</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Max out</td>
+                            <td>100%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Min out</td>
+                            <td>0%</td>
+                        </tr>
+
+                </table>
+
+
+
+                <br>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <td class="Ro" colspan="3">Cooling regulation valve settings</td>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <th>Parameters</th>
+                        <th>Set point</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>TE15-15</td>
+                        <td>25°C</td>
+
+                        <tr>
+                            <td>Gain</td>
+                            <td>-1</td>
+                        </tr>
+
+                        <tr>
+                            <td>Integral</td>
+                            <td>4s</td>
+                        </tr>
+
+                        <tr>
+                            <td>Output</td>
+                            <td>0%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Out in cooling after sanitization</td>
+                            <td>3%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Max out</td>
+                            <td>100%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Min out</td>
+                            <td>0%</td>
+                        </tr>
+
+                </table>
+
+
+
+                <br>
+
+                <table>
+                    <br>
+                    <thead>
+                        <hr>
+                        <br>
+                        <tr>
+                            <td class="Ro" colspan="3">User Points</td>
+                        </tr>
+
+                        <tr>
+                            <td class="Ro" colspan="3">USER POINTS Phases Settings</td>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <th>Parameters</th>
+                        <th>Set point</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>TISLISDI Withdraw Temperature</td>
+                        <td>25°C</td>
+
+                        <tr>
+                            <td>Tolerance for TISLISDI</td>
+                            <td>5°C</td>
+                        </tr>
+
+                        <tr>
+                            <td>TISH15D1 Temp open XV15C1</td>
+                            <td>70°C</td>
+                        </tr>
+
+                </table>
+
+                <br>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <td class="Ro" colspan="3">USER POINTS Alarms Settings</td>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <th>Parameters</th>
+                        <th>Set point</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>Timeout Cooling E15A1</td>
+                        <td>30min</td>
+
+                </table>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Copyright Symbol"> &copy; Arwan Pharmaceutical Industries Lebanon &nbsp; <b>2023-2024</b>
+
+        </div>
+        <div class="copyrightText">
+            <h1>Created By Houssein Baz</h1>
+        </div>
+    </footer>
+</body>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+
+
+
+</html>

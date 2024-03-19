@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Qr-WebPageStyle.css" />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/76CyrkZq/IMG-20240105-112414.png">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.0.0/dist/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Arwan-LYO-Loop</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" href="StyleTable.css" />
+    <script>
+        $(document).ready(function() {
+            $("#flip").click(function() {
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="https://www.arwanlb.com/" title="Home" rel="home" class="Arwan-logo">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Home" />
+        </a>
+        <h1 class="header-title">Arwan Pharmaceutical Industries Lebanon</h1>
+
+    </header>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-brands fa-xing"></i></a>
+        <div class="overlay-content">
+            <a href="Qr-WebPage.html">Home</a>
+            <a href="Qr-Wp-WfiArea.html">WFI Area</a>
+            <a href="Manual-Ro.html">About Ro</a>
+            <a href="Manual-Ms.html">About Ms</a>
+            <a href="Manual-Psg.html">About Psg</a>
+            <a href="Sop.html">Sop Preventive</a>
+        </div>
+    </div>
+    <div class="btnmenu">
+        <button class="btnnav"><span onclick="openNav()"><i class="fa-solid fa-bars-staggered"></i> open</span></button>
+    </div>
+    <div class="border">
+        <div id="flip">Click to slide the panel down or up</div>
+        <div id="panel">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">LYO Loop Phases Settings</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>LSL15-11B To start pump</td>
+                    <td>10%</td>
+                </tr>
+
+                <tr>
+                    <td>LSH 15-11B Tank filling stop</td>
+                    <td>80%</td>
+                </tr>
+
+                <tr>
+                    <td>Delay start recycle WFI LYO</td>
+                    <td>1min</td>
+                </tr>
+
+
+
+            </table>
+            <br>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <td class="Ro" colspan="3">LYO Loop Alarms Setting</td>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <th>Parameters</th>
+                    <th>Set point</th>
+                </tr>
+
+
+                <tr>
+                    <td>LSLL15-11B tank TK15B</td>
+                    <td>5s</td>
+                </tr>
+
+                <tr>
+                    <td>Minimum Level</td>
+                    <td>15%</td>
+                </tr>
+
+
+
+            </table>
+        </div>
+    </div>
+    <footer>
+        <div class="copyright">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Copyright Symbol"> &copy; Arwan Pharmaceutical Industries Lebanon &nbsp; <b>2023-2024</b>
+
+        </div>
+        <div class="copyrightText">
+            <h1>Created By Houssein Baz</h1>
+        </div>
+    </footer>
+</body>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+
+
+
+</html>

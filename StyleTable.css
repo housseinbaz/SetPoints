@@ -1,0 +1,45 @@
+body {
+    background-color: #F5F5F5;
+}
+
+#panel,
+#flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 50px;
+    display: none;
+}
+
+.border {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 2px solid #c3c3c3;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #d4e6a5;
+}
+
+.Ro,
+.Ms,
+.Psg {
+    text-align: center;
+    font-weight: bold;
+}
