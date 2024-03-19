@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+
+    <title>BMS-Notes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        #notes-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            height: 600px;
+            overflow-y: auto;
+        }
+        
+        #notes-container::-webkit-scrollbar {
+            width: 12px;
+            /* Width of the scrollbar */
+        }
+        
+        #notes-container::-webkit-scrollbar-thumb {
+            background-color: #1AA7EC;
+            /* Color of the scrollbar thumb */
+            border-radius: 10px;
+            /* Rounded corners of the thumb */
+        }
+        
+        #notes-container::-webkit-scrollbar-track {
+            background-color: #ddd;
+            /* Color of the scrollbar track */
+        }
+        
+        .header {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        
+        .form-container {
+            padding: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #1AA7EC;
+            border-radius: 4px;
+            color: #820024;
+        }
+        
+        textarea {
+            resize: vertical;
+        }
+        
+        .user-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            flex-basis: calc(33.33% - 10px);
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2557a7;
+        }
+        
+        button.clicked {
+            border: 2px solid #000000;
+        }
+        
+        #user-notes {
+            text-align: left;
+            padding: 20px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .note {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notes-container">
+        <div class="header">
+            <h2>Your Notes</h2>
+        </div>
+        <div class="form-container">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="note-input">Note:</label>
+            <textarea id="note-input" rows="4" placeholder="Write your note..." required></textarea>
+
+
+
+            <div class="user-buttons">
+                <button class="custom-button" onclick="loadUser('Hossein');  changeBorderColor(this)">Load Messages for Houssein Baz</button>
+                <button class="custom-button" onclick="loadUser('Bassam');  changeBorderColor(this)">Load Messages for Bassam Yassin</button>
+                <button class="custom-button" onclick="loadUser('Hassan');  changeBorderColor(this)">Load Messages for Hassan Shoum</button>
+                <button class="custom-button" onclick="loadUser('Bahaa');  changeBorderColor(this)">Load Messages for Bahaa Anssari</button>
+                <button class="custom-button" onclick="loadUser('Basher');  changeBorderColor(this)">Load Messages for Basher Awad</button>
+                <button class="custom-button" onclick="loadUser('Bassil');  changeBorderColor(this)">Load Messages for Bassil Ghareeb</button>
+                <button class="custom-button" onclick="loadUser('Ali');  changeBorderColor(this)">Load Messages for Ali Abou Khashfe</button>
+                <button class="custom-button" onclick="loadUser('Nabil');  changeBorderColor(this)">Load Messages for Nabil El Khatib</button>
+            </div>
+
+            <button onclick="saveNote()"><i class="fas fa-save"></i> Save</button>
+            <button onclick="downloadNotes()"><i class="fas fa-file-alt"></i> Download All Notes</button>
+
+
+        </div>
+
+        <div id="user-notes"></div>
+        <div id="selected-user" style="display: none;"></div>
+    </div>
+    <script>
+        // Sample notes data (replace with backend integration)
+        let notesData = {};
+
+        // Load notes from local storage on page load
+        window.onload = function() {
+            const storedNotes = localStorage.getItem('notesData');
+            if (storedNotes) {
+                notesData = JSON.parse(storedNotes);
+            }
+            // Assume a single user for simplicity; adapt for multi-user scenarios
+            loadUser('Hsein');
+            loadUser('Bassam');
+            loadUser('Bashir');
+            loadUser('Bahaa');
+            loadUser('Bassil');
+            loadUser('Hassan');
+            loadUser('Ali');
+            loadUser('Nabil');
+            loadUser('Admin');
+        };
+
+        function saveNote() {
+            const usernameInput = document.getElementById('username');
+            const dateInput = document.getElementById('date');
+            const noteInput = document.getElementById('note-input');
+
+            const username = usernameInput.value.trim();
+            const date = dateInput.value.trim();
+            const note = noteInput.value.trim();
+
+            if (username !== '' && date !== '' && note !== '') {
+                // Ensure the entered username matches the selected user
+                const selectedUser = document.getElementById('selected-user').textContent;
+                if (username === selectedUser) {
+                    // Simulate user authentication (replace with real authentication)
+                    const userId = username;
+
+                    // Save note in data (replace with backend API call)
+                    if (!notesData[userId]) {
+                        notesData[userId] = [];
+                    }
+                    notesData[userId].push({
+                        date,
+                        note
+                    });
+
+                    // Save updated notes to local storage
+                    localStorage.setItem('notesData', JSON.stringify(notesData));
+
+                    // Update displayed notes
+                    displayNotes(userId);
+
+                    // Clear input fields
+                    usernameInput.value = '';
+                    dateInput.value = '';
+                    noteInput.value = '';
+                } else {
+                    alert('Entered username does not match the selected user.');
+                }
+            }
+        }
+
+        function displayNotes(userId) {
+            const userNotesContainer = document.getElementById('user-notes');
+            const userNotes = notesData[userId] || [];
+
+            // Display notes
+            userNotesContainer.innerHTML = `<h3>Messages for ${userId}</h3>`;
+            if (userNotes.length > 0) {
+                userNotes.forEach(({
+                    date,
+                    note
+                }) => {
+                    const noteElement = document.createElement('div');
+                    noteElement.className = 'note';
+                    noteElement.innerHTML = `Date: ${date}, Note: ${note}`;
+                    userNotesContainer.appendChild(noteElement);
+                });
+            } else {
+                userNotesContainer.innerHTML += '<p>No messages saved.</p>';
+            }
+        }
+
+
+
+
+        function downloadNotes() {
+            // Prompt the user for a password
+            const password = prompt('Enter the password to download the messages: (Only For Admin ;) ).');
+
+            // Check if the password is correct
+            if (password === 'CPA*20#24') {
+                // Simulate server-side operation to save all messages in a text file
+                const textContent = Object.entries(notesData)
+                    .map(([userId, userNotes]) => userNotes.map(({
+                        date,
+                        note
+                    }) => `${userId}: Date: ${date}, Note: ${note}`).join('\n'))
+                    .join('\n\n');
+
+                // Create a Blob containing the text content
+                const blob = new Blob([textContent], {
+                    type: 'text/plain'
+                });
+
+                // Create a link to download the file
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'all_messages.txt';
+
+                // Append the link to the document and trigger the click event
+                document.body.appendChild(a);
+                a.click();
+
+                // Remove the link from the document
+                document.body.removeChild(a);
+            } else {
+                alert('Incorrect password. Download aborted.');
+            }
+        }
+
+        function loadUser(username) {
+            document.getElementById('selected-user').textContent = username;
+            displayNotes(username);
+        }
+
+
+        function changeBorderColor(button) {
+            // Remove the "clicked" class from all buttons
+            const buttons = document.querySelectorAll('.custom-button');
+            buttons.forEach(btn => btn.classList.remove('clicked'));
+
+            // Add the "clicked" class to the clicked button
+            button.classList.add('clicked');
+        }
+    </script>
+
+</body>
+
+</html>
