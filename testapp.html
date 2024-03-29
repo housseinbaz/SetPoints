@@ -1,0 +1,629 @@
+
+<!DOCTYPE >
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <!-- <script type="text/javascript" src="js/vue.js"></script> -->
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>BMS-UI-APP</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"  referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"  crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+   
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="store.ico">
+    <script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+     <script src="https://www.youtube.com/iframe_api"></script>
+     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+     <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+</head>
+
+<style>
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.postimg.cc/CLPNNp20/Picsart-24-03-25-14-57-12-374.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+
+
+
+
+
+  .logo {
+    width: 30px; /* adjust the width as needed */
+    height: auto; /* adjust the height as needed */
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Logo on the left, Awan centered */
+    align-items: center;
+    padding: 20px; /* adjust padding as needed */
+    background-color: #f0f0f0; /*
+    w example background color */
+}
+
+h1 {
+    text-align: center; /* center text horizontally */
+    font-size: 24px; /* example font size */
+    color: #820024; /* example text color */
+    margin: 0; /* remove default margin */
+    flex-grow: 1; /* Allows h1 to take up remaining space */
+    font-family: emoji;
+}
+
+
+
+          .navigation {
+            width: 400px;
+            height: 60px;
+            background: rgb(248, 248, 248);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            bottom: 0;
+            position: fixed;
+        }
+        
+        .navigation ul {
+            display: flex;
+            width: 350px;
+        }
+        
+        .navigation ul li {
+            list-style: none;
+            position: relative;
+            width: 70px;
+            height: 60px;
+            z-index: 2;
+        }
+        
+        .navigation ul li a {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .navigation ul li a .icon {
+            position: relative;
+            display: block;
+            line-height: 65px;
+            font-size: 1.5em;
+            transition: 0.5s;
+            color: #222327;
+        }
+        
+        .navigation ul li.active a .icon {
+            transform: translateY(-32px);
+            color: #224a54;
+        }
+        
+        .navigation ul li a .text {
+            position: absolute;
+            /*background: #003263; */
+            color: #fff;
+            padding: 2px 7px;
+            border-radius: 12px;
+            font-weight: 400;
+            font-size: 0.75em;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        
+        .navigation ul li.active a .text {
+            transform: translateY(-4px);
+            opacity: 1;
+        }
+        
+        .indicator {
+            position: absolute;
+            top: -35px;
+            width: 70px;
+            height: 70px;
+            background: rgb(248, 248, 248);
+            border-radius: 50%;
+            z-index: 1;
+            transition: 0.5s;
+        }
+        
+        .indicator::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: -28px;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border-radius: 50%;
+            box-shadow: 15px 18px rgb(248, 248, 248);
+        }
+        
+        .indicator::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            right: -28px;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border-radius: 50%;
+            box-shadow: -15px 18px rgb(248, 248, 248);
+        }
+        
+        .navigation ul li:nth-child(1).active~.indicator {
+            transform: translateX(calc(70px * 0));
+        }
+        
+        .navigation ul li:nth-child(2).active~.indicator {
+            transform: translateX(calc(70px * 1));
+        }
+        
+        .navigation ul li:nth-child(3).active~.indicator {
+            transform: translateX(calc(70px * 2));
+        }
+        
+        .navigation ul li:nth-child(4).active~.indicator {
+            transform: translateX(calc(70px * 3));
+        }
+        
+        .navigation ul li:nth-child(5).active~.indicator {
+            transform: translateX(calc(70px * 4));
+        }
+
+
+
+
+
+
+
+
+
+
+        li #l1 {
+    background: #9e9e9e;
+}
+
+li #l2 {
+    background: #ef5350;
+}
+
+li #l3 {
+    background: #ffa726;
+}
+
+li #l4 {
+    background: #66bb6a;
+}
+
+
+.container #a1 {
+    background: #9e9e9e;
+}
+
+.container #a2 {
+    background: #ef5350;
+}
+
+
+
+
+
+
+
+
+
+            #iframe-container {
+            display: none;
+          text-align: center;
+        }
+        
+        .closeIframe {
+            background-color: #820024;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #ifrclose {
+            width: 120px;
+            height: 50px;
+            background: linear-gradient(to right, #000000, #3f3f3f, #747474);
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            transition: background 0.5s ease;
+            border: 2px solid rgb(255, 255, 255);
+            font-weight: bold;
+        }
+        
+        #ifrclose:hover {
+            background: linear-gradient(to right, #3f3f3f, #747474, #000000);
+            transition: background 0.5s ease;
+        }
+
+
+
+
+        #myIframe {
+            width: 420px;
+            height: 315px;
+            display: none; /* Initially hide the iframe */
+        }
+
+        .circular-button {
+    position: fixed;
+    bottom: 80px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    width: 50px;
+    height: 50px;
+    background-color: #b9b9b9;/* Button background color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: moveButton 1s infinite alternate; /* Animation properties */
+}
+
+.circular-button i {
+    color: #fff; /* Icon color */
+}
+
+@keyframes moveButton {
+    from {
+        transform: translateY(15px);
+    }
+    to {
+        transform: translateY(-5px); 
+    }
+}
+
+
+        #myIframe {
+            width: 700px; /* Adjust the width as needed */
+        height: 450px; 
+            border: 4px solid #820024; 
+            border-radius: 12px;
+            background-color: rgba(11, 11, 11, 0.5); 
+            box-shadow: 10px 10px 5px #a26d7c;
+           
+        }
+</style>
+<header>
+    <img <img src="https://i.postimg.cc/t4H4dLRc/IMG-20240112-124013.png" alt="Logo" class="logo">
+    <h1 id="typed-text"></h1>
+</header>
+<body>
+<div class="background-image"></div>
+
+    <div class="container">
+        <div class="navigation">
+            <ul>
+
+                <li id="i1" class="list active">
+                    <a href="https://housseinbaz.github.io/SetPoints/Ro.html" >
+                        <span class="icon">
+                            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/pbbsmkso.json"
+                                trigger="hover"
+                                colors="primary:#121331">
+                            </lord-icon>
+                  </span>
+                        <span id="l1" class="text">Arwan</span>
+                    </a>
+                </li>
+
+                <li id="i2" class="list">
+                    <a href="#" >
+                        <span class="icon" onclick="one()">
+                            <lord-icon
+                            src="https://cdn.lordicon.com/laqlvddb.json"
+                            trigger="hover"
+                            colors="primary:#121331">
+                            </lord-icon>
+                  </span>
+                        <span id="l2" class="text">Home</span>
+                    </a>
+                </li>
+
+                <li id="i3" class="list">
+
+                    <a href="#" >
+                        <span class="icon" onclick="two()">
+                            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/ghhwiltn.json"
+    trigger="hover"
+    colors="primary:#121331">
+</lord-icon>
+                  </span>
+                        <span id="l3" class="text">Note</span>
+                    </a>
+                </li>
+                <li id="i4" class="list">
+                    <a href="#" >
+                        <span class="icon" onclick="three()">
+                            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/avcjklpr.json"
+                                trigger="hover"
+                                colors="primary:#121331">
+                            </lord-icon>
+                  </span>
+                        <span id="l4" class="text">Qr-Scan</span>
+                    </a>
+                </li>
+               
+                <div class="indicator"></div>
+            </ul>
+
+        </div>
+    </div>
+
+    <div id="iframe-container">
+        <div class="closeIframe">
+            <button id="ifrclose" onclick="closeIframe()"><div class="clearifr"><i class="material-icons">clear</i></div>Close Iframe</button>
+        </div>
+        <iframe id="page-iframe" src="" style="width: 100%; height: 100%; display: block;">
+        </iframe>
+    </div>
+
+
+
+
+    <div class="circular-button">
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/msrokfyb.json"
+    trigger="hover">
+</lord-icon>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center; height: 74vh;">
+        <iframe id="myIframe" src="https://www.youtube.com/embed/TowBelGPIA0?controls=0" allowfullscreen></iframe>
+    </div>
+ 
+</body>
+
+<script>
+   
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const input = document.querySelector('input');
+        const i1 = document.getElementById('i1');
+        const i2 = document.getElementById('i2');
+        const i3 = document.getElementById('i3');
+        const i4 = document.getElementById('i4');
+        const i5 = document.getElementById('i5');
+
+        i1.addEventListener('click', () => {
+            input.style.backgroundColor = ' #e0e0e0 ';
+        });
+
+        i2.addEventListener('click', () => {
+            input.style.backgroundColor = '  #ffebee  ';
+        });
+
+        i3.addEventListener('click', () => {
+            input.style.backgroundColor = '  #fff3e0  ';
+        });
+
+        i4.addEventListener('click', () => {
+            input.style.backgroundColor = '#e8f5e9';
+        });
+
+        i5.addEventListener('click', () => {
+            input.style.backgroundColor = ' #616161 ';
+        });
+    });
+    const list = document.querySelectorAll(".list");
+
+function activeLink() {
+    // event.preventDefault(); // Prevent the default behavior of anchor tags
+    list.forEach((item) => item.classList.remove("active"));
+    this.classList.add("active");
+}
+
+list.forEach((item) => item.addEventListener("click", activeLink));
+
+
+
+
+
+
+   // Text to be typed
+var textToType = "Welcome to Building Management System";
+
+// Get the <h1> element
+var headerText = document.getElementById('typed-text');
+
+// Function to simulate typing effect
+function typeText(text, index) {
+    if (index < text.length) {
+        headerText.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(function() {
+            typeText(text, index);
+        }, 50); // Adjust typing speed (milliseconds)
+    }
+}
+
+// Start typing the text
+typeText(textToType, 0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+        const header = document.querySelector('header');
+        const i1 = document.getElementById('i1');
+        const i2 = document.getElementById('i2');
+        const i3 = document.getElementById('i3');
+        const i4 = document.getElementById('i4');
+        
+
+        i1.addEventListener('click', () => {
+            header.style.backgroundColor = '#f0f0f0';
+        });
+
+        i2.addEventListener('click', () => {
+            header.style.backgroundColor = '#ffe6e6';
+        });
+
+        i3.addEventListener('click', () => {
+            header.style.backgroundColor = '#fff2e6';
+        });
+
+        i4.addEventListener('click', () => {
+            header.style.backgroundColor = '#ecffe6';
+        });
+
+        
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const navigation = document.querySelector('.navigation');
+        const i1 = document.getElementById('i1');
+        const i2 = document.getElementById('i2');
+        const i3 = document.getElementById('i3');
+        const i4 = document.getElementById('i4');
+       
+
+        i1.addEventListener('click', () => {
+            navigation.style.backgroundColor = '#f0f0f0';
+        });
+
+        i2.addEventListener('click', () => {
+            navigation.style.backgroundColor = '#ffe6e6';
+        });
+
+        i3.addEventListener('click', () => {
+            navigation.style.backgroundColor = '#fff2e6';
+        });
+
+        i4.addEventListener('click', () => {
+            navigation.style.backgroundColor = '#ecffe6';
+        });
+
+       
+    });
+
+
+
+
+
+
+
+
+
+
+    function one() {
+        // Set the URL of the page you want to display in the iframe
+        var pageURL = 'https://housseinbaz.github.io/SetPoints/Ro.html';
+
+        // Show the iframe container
+        document.getElementById('iframe-container').style.display = 'block';
+
+        // Set the iframe source to the specified page URL
+        document.getElementById('page-iframe').src = pageURL;
+
+    }
+
+
+    function two() {
+        // Set the URL of the page you want to display in the iframe
+        var pageURL = '';
+
+        // Show the iframe container
+        document.getElementById('iframe-container').style.display = 'block';
+
+        // Set the iframe source to the specified page URL
+        document.getElementById('page-iframe').src = pageURL;
+
+    }
+
+    function three() {
+        // Set the URL of the page you want to display in the iframe
+        var pageURL = 'https://housseinbaz.github.io/SetPoints/qr-code.html';
+
+        // Show the iframe container
+        document.getElementById('iframe-container').style.display = 'block';
+
+        // Set the iframe source to the specified page URL
+        document.getElementById('page-iframe').src = pageURL;
+
+    }
+
+    
+    function closeIframe() {
+            const iframe = document.getElementById('iframe-container');
+            iframe.style.display = 'none';
+        }
+
+
+
+
+
+
+
+
+
+        document.querySelector('.circular-button').addEventListener('click', function() {
+        var iframe = document.getElementById('myIframe');
+        if (iframe.style.display === 'none' || iframe.style.display === '') {
+            iframe.style.display = 'block';
+        } else {
+            iframe.style.display = 'none';
+        }
+    });
+
+
+</script>
+</html>
