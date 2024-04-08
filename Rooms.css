@@ -1,0 +1,290 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #820024;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-title {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(-5px);
+    }
+}
+
+.Arwan-logo {
+    margin-right: 10px;
+}
+
+.header-title {
+    margin: 0;
+}
+
+.qr-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.qr-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+    width: 80%;
+    max-width: 300px;
+    border: 2px solid #820024;
+    transition: 0.7s ease-in-out;
+}
+
+.qr-card:hover {
+    filter: blur(1px);
+    background-color: #e6ffe6;
+    transform: scale(1.05);
+}
+
+.rotate-transition {
+    transition: transform 1s ease-in-out;
+    /* Add smooth transition effect */
+}
+
+.qr-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.qr-card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.qr-card-content h2 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+}
+
+.qr-card-content p {
+    margin: 0;
+    color: #555;
+}
+
+.qr-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 80%;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-content img {
+    width: 50%;
+    height: auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    display: block;
+    margin: auto;
+}
+
+.modal-content p {
+    margin: 0;
+    color: #555;
+}
+
+#card1 img,
+#card2 img,
+#card3 img,
+#card4 img,
+#card5 img {
+    background-color: rgb(230, 230, 230);
+}
+
+@media only screen and (min-width: 600px) {
+    .qr-card {
+        width: 45%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .qr-card {
+        width: 30%;
+    }
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+.copyright {
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyright img {
+    width: 25px;
+    margin-right: 5px;
+}
+
+.copyrightText h1 {
+    color: white;
+    font-size: 0.8em;
+}
+
+.LineStyle {
+    width: 100%;
+    height: 2px;
+    background-color: #820024;
+}
+
+#preload-card1,
+#preload-card2,
+#preload-card3,
+#preload-card4,
+#preload-card5 {
+    display: none;
+}
+
+
+/*Menu*/
+
+.image-card {
+    position: relative;
+    width: 40%;
+    height: 80%;
+    overflow: hidden;
+    border: 3px solid rgb(0, 0, 0);
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 0 10px #820024;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 5%;
+}
+
+.image-card:hover {
+    transform: scale(1.4);
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-card:hover .overlay {
+    opacity: 1;
+}
+
+#card1,
+#card3,
+#card5 {
+    animation: rotateRight 4s linear infinite alternate;
+}
+
+#card2,
+#card4 {
+    animation: rotateLeft 4s linear infinite alternate;
+}
+
+@keyframes rotateRight {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes rotateLeft {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-2deg);
+    }
+}

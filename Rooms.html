@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Rooms.css" />
+    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/76CyrkZq/IMG-20240105-112414.png">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-with-logos@1.0.0/dist/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="script.js"></script>
+    <title>Arwan-Rooms</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="https://www.arwanlb.com/" title="Home" rel="home" class="Arwan-logo">
+            <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Home" />
+        </a>
+        <h1 class="header-title">Arwan Pharmaceutical Industries Lebanon</h1>
+
+    </header>
+
+
+
+    <div class="qr-cards-container">
+        <div class="qr-card" id="card1" onclick="window.open('Qr-WebPage.html')">
+            <img src="https://i.postimg.cc/5NNGYQDt/Picsart-24-03-11-11-45-22-803.jpg" alt="Please Check Your Connection ;)">
+            <div id="preload-card1"></div>
+            <div class="LineStyle"></div>
+            <div class="qr-card-content">
+                <h2>Clean Utilities</h2>
+            </div>
+
+        </div>
+
+        <div class="qr-card" id="card2" onclick="window.open('QR-WebPageMech.html')">
+            <img src="https://i.postimg.cc/qMbF8Mdx/Picsart-24-03-11-11-45-34-637.jpg" alt="Please Check Your Connection ;)">
+            <img id="preload-card2">
+            <div class="LineStyle"></div>
+            <div class="qr-card-content">
+                <h2>Dark Utilities</h2>
+            </div>
+        </div>
+
+
+
+
+</body>
+<footer>
+    <div class="copyright">
+        <img src="https://i.postimg.cc/0yCVZjpF/Logo-Arwan-2.png" alt="Copyright Symbol"> &copy; Arwan Pharmaceutical Industries Lebanon &nbsp; <b>2024-2025</b>
+
+    </div>
+    <div class="copyrightText">
+        <h1>Created By Houssein Baz</h1>
+    </div>
+</footer>
+<script>
+    // setTimeout(() => {
+    qrCardsContainer.style.transform = 'rotate(0deg)';
+    // }, 1000);
+    // });
+</script>
+
+
+
+</html>
