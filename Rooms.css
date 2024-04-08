@@ -289,9 +289,25 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
     .qr-card {
-        width: 30%; /* Makes each card take almost full width */
+        width: 40%; /* Adjust for 2 cards in a row on medium screens */
+        margin: 1%; /* Adjust margin for layout */
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .qr-card {
+        width: 40%; /* Makes each card take almost full width on small devices */
+        margin: 1% 0; /* Adjust margin for vertical layout */
+    }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575px) {
+    .qr-card {
+        width: 40%; /* Full width cards on very small screens */
         margin: 1% 0; /* Adjust margin for vertical layout */
     }
 }
