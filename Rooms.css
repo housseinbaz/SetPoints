@@ -288,3 +288,10 @@ footer {
         transform: rotate(-2deg);
     }
 }
+
+@media (max-width: 768px) {
+    .qr-card {
+        width: 30%; /* Makes each card take almost full width */
+        margin: 1% 0; /* Adjust margin for vertical layout */
+    }
+}
