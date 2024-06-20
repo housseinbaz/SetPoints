@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-GLhlTQ8iUNt1NlfkZq5Pd6TAAAYvpESmK9sNkFVZQ+8dA6CVMp5fDqF4e9EIIWoI" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <title>Attendance Form</title>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      background-color: #2d3748;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 30rem;
+      width: 100%;
+      border: 2px solid white;
+    }
+    .container h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      padding-right: 10px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 0.5rem;
+    }
+    .buttons button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .buttons #timeInButton {
+      background-color: #3182ce;
+      transition: 0.7s ease-in-out;
+    }
+    .buttons #timeInButton:hover {
+      background-color: #000000;
+      border: white 2px solid;
+    }
+    .buttons #timeOutButton {
+      background-color: #38a169;
+      transition: 0.7s ease-in-out;
+    }
+    .buttons #timeOutButton:hover {
+      background-color: #000000;
+      border: white 2px solid;
+    }
+    form {
+      display: none;
+    }
+    form.active {
+      display: block;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      padding-right: 25px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.375rem;
+      border: 1px solid #4a5568;
+      background-color: #4a5568;
+      color: #e2e8f0;
+      outline: none;
+    }
+    .form-group input:focus {
+      border-color: #63b3ed;
+    }
+    .form-group input:focus-visible {
+      outline: 2px solid #63b3ed;
+    }
+    .form-group button {
+      background-color: #000000;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      display: block;
+      margin: 0 auto;
+      margin-left: 173px;
+      transition: background 0.3s ease-in-out;
+    }
+    .form-group button:hover {
+      background-image: linear-gradient(to bottom right, #3182ce, #38a169);
+      border: solid 2px white;
+    }
+    .form-group input {
+      --input-border-color: #3182ce;
+      --input-text-color: #ffffff;
+      --input-caret-color: #2b6cb0;
+      color: var(--input-text-color);
+      caret-color: var(--input-caret-color);
+    }
+    .form-group input:hover {
+      --input-focus-border-color: #2b6cb0;
+      --input-text-color: #38a169;
+      color: var(--input-text-color);
+      border: 1px solid var(--input-border-color);
+    }
+    .box-logo {
+      display: flex;
+      justify-content: center;
+    }
+    .box-logo img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 1.875rem;
+    }
+
+    /* Responsive Styles */
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 2rem;
+        max-width: 20rem;
+        width: 100%;
+      }
+      .buttons {
+        display: flex;
+        justify-content: space-around;
+      }
+      .form-group button {
+        margin-left: 100px;
+      }
+    }
+    @media only screen and (max-width: 400px) {
+      .container {
+        max-width: 15rem;
+      }
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-group button {
+        margin-left: 60px;
+      }
+      .buttons button {
+        margin-bottom: 10px;
+      }
+    }
+    @media only screen and (max-width: 320px) {
+      .container {
+        max-width: 10rem;
+      }
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .buttons button {
+        margin-bottom: 8px;
+      }
+      .form-group button {
+        margin-left: 35px;
+      }
+    }
+    .sending-message {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #2b6cb0;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 1000;
+}
+.alert {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+.alert-success {
+  background-color: #38a169;
+  color: white;
+}
+
+.alert-error {
+  background-color: #e53e3e;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box-logo">
+      <img src="https://i.postimg.cc/RCKJXj3v/IMG_20240317_123004.png" alt="Home"/>
+    </div>
+    <h2 id="attendanceHeading">Attendance Form</h2>
+    <div class="buttons">
+      <button id="timeInButton"><i class="fa-solid fa-circle-arrow-right"></i> Time In</button>
+      <button id="timeOutButton"><i class="fa-solid fa-circle-arrow-left"></i> Time Out</button>
+    </div>
+
+    <form id="timeInForm" onsubmit="submitForm(event, 'https://script.google.com/macros/s/AKfycbxddkLtTPDJgcpOCwJRpHQmbhsmg2jttBat5hZNddO_9ZAR3o8oW5ZkguFmknmuLlAxgg/exec')">
+        <input type="hidden" name="type" value="Arrival Time">
+        <div class="form-group">
+        <label for="nameIn"><i class="fa-regular fa-user"></i> Full Name</label>
+        <input type="text" id="nameIn" name="name" placeholder="Enter your name..." required>
+      </div>
+      <div class="form-group">
+        <label for="dateIn"><i class="fa-regular fa-calendar"></i> Date</label>
+        <input type="date" id="dateIn" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="timeIn"><i class="fa-regular fa-clock"></i> Time In</label>
+        <input type="time" id="timeIn" name="time" required>
+      </div>
+      <div class="form-group">
+        <button type="submit"><i class="fa-regular fa-paper-plane"></i> Submit</button>
+      </div>
+    
+    </form>
+
+    <form id="timeOutForm" onsubmit="submitForm(event, 'https://script.google.com/macros/s/AKfycbxddkLtTPDJgcpOCwJRpHQmbhsmg2jttBat5hZNddO_9ZAR3o8oW5ZkguFmknmuLlAxgg/exec')">
+        <input type="hidden" name="type" value="Departure Time">
+        <div class="form-group">
+        <label for="nameOut"><i class="fa-regular fa-user"></i> Full Name</label>
+        <input type="text" id="nameOut" name="name" placeholder="Enter your name..." required>
+      </div>
+      <div class="form-group">
+        <label for="dateOut"><i class="fa-regular fa-calendar"></i> Date</label>
+        <input type="date" id="dateOut" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="timeOut"><i class="fa-regular fa-clock"></i> Time Out</label>
+        <input type="time" id="timeOut" name="time" required>
+      </div>
+      <div class="form-group">
+        <label for="Total Hours"><i class="fa-regular fa-clock"></i> Total Hours</label>
+        <input type="text" id="number" name="number" required>
+      </div>
+      <div class="form-group">
+        <button type="submit"><i class="fa-regular fa-paper-plane"></i> Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('timeInButton').addEventListener('click', function() {
+      document.getElementById('timeInForm').classList.add('active');
+      document.getElementById('timeOutForm').classList.remove('active');
+      document.getElementById('attendanceHeading').style.display = 'none';
+    });
+
+    document.getElementById('timeOutButton').addEventListener('click', function() {
+      document.getElementById('timeInForm').classList.remove('active');
+      document.getElementById('timeOutForm').classList.add('active');
+      document.getElementById('attendanceHeading').style.display = 'none';
+    });
+
+    function submitForm(event, url) {
+  event.preventDefault();
+  var form = event.target;
+  var formData = new FormData(form);
+  
+  // Add a hidden input for type (either timeIn or timeOut)
+  var type = form.querySelector('input[name="type"]').value;
+  formData.append('type', type);
+
+  // Show "Sending..." message
+  showSendingMessage();
+
+  fetch(url, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
+  })
+  .then(data => {
+    console.log('Form submitted successfully:', data);
+    // Reset the form
+    form.reset();
+    // Show success message
+    showAlert('success', 'Form submitted successfully!');
+  })
+  .catch(error => {
+    console.error('Error submitting form:', error);
+    // Show error message
+    showAlert('error', 'Error submitting form. Please try again later.');
+  });
+}
+
+function submitForm(event, url) {
+  event.preventDefault();
+  var form = event.target;
+  var formData = new FormData(form);
+  
+  // Add a hidden input for type (either timeIn or timeOut)
+  var type = form.querySelector('input[name="type"]').value;
+  formData.append('type', type);
+
+  // Show "Sending..." message
+  showSendingMessage();
+
+  fetch(url, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.text();
+  })
+  .then(data => {
+    console.log('Form submitted successfully:', data);
+    // Reset the form
+    form.reset();
+    // Show success message
+    showAlert('success', 'Form submitted successfully!');
+  })
+  .catch(error => {
+    console.error('Error submitting form:', error);
+    // Show error message
+    showAlert('error', 'Error submitting form. Please try again later.');
+  });
+}
+
+function showSendingMessage() {
+  var sendingMessage = document.createElement('div');
+  sendingMessage.textContent = 'Sending...';
+  sendingMessage.className = 'sending-message';
+
+  document.body.appendChild(sendingMessage);
+
+  setTimeout(function() {
+    sendingMessage.remove();
+  }, 3000); // Remove after 2 seconds (adjust as needed)
+}
+
+function showAlert(type, message) {
+  var alertBox = document.createElement('div');
+  alertBox.className = 'alert alert-' + type;
+  alertBox.textContent = message;
+
+  document.body.appendChild(alertBox);
+
+  setTimeout(function() {
+    alertBox.remove();
+  }, 3000); // Remove alert after 3 seconds
+}
+
+  </script>
+</body>
+</html>
