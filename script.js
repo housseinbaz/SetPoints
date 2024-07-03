@@ -17,7 +17,7 @@ document.getElementById("createAccountForm").addEventListener("submit", function
     fetch(databaseURL, {
         method: 'GET',
         headers: {
-            'Authorization': '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',
+            'Authorization': 'token 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',
         }
     })
     .then(response => response.json())
@@ -29,7 +29,7 @@ document.getElementById("createAccountForm").addEventListener("submit", function
         return fetch(databaseURL, {
             method: 'PUT',
             headers: {
-                'Authorization': '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',
+                'Authorization': 'token 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',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
